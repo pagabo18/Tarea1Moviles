@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,6 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _dec = 0;
   int _inc = 0;
+  int _mail = 0;
+  int _phone = 0;
+  int _dir = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -55,24 +56,25 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text('App Iteso'),
+              title: const Text('App Iteso'),
             ),
             body: Column(
               children: [
                 Image.network(
                     "https://cruce.iteso.mx/wp-content/uploads/sites/123/2018/04/Portada-2-e1525031912445.jpg"),
                 ListTile(
-                  title: Text('EL ITESO, Universidad jesuita de guadalajara'),
-                  subtitle: Text('Tlaquepaque'),
+                  title: const Text(
+                      'EL ITESO, Universidad jesuita de guadalajara'),
+                  subtitle: const Text('Tlaquepaque'),
                   trailing: Wrap(
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.thumb_up),
+                        icon: const Icon(Icons.thumb_up),
                         onPressed: _incrementCounter,
                         color: (_inc % 2 == 1) ? Colors.blue : Colors.grey,
                       ),
                       IconButton(
-                          icon: Icon(Icons.thumb_down),
+                          icon: const Icon(Icons.thumb_down),
                           onPressed: _dectrementCounter,
                           color: (_dec % 2 == 1) ? Colors.red : Colors.grey),
                       Text('$_counter'),
@@ -85,32 +87,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.mail),
-                          onPressed: () {},
+                          icon: const Icon(Icons.mail),
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("Mail"),
+                              duration: Duration(milliseconds: 300),
+                            ));
+
+                            setState(() {
+                              _mail++;
+                            });
+                          },
+                          color: (_mail % 2 == 1) ? Colors.blue : Colors.black,
                         ),
-                        Text("correo"),
+                        const Text("correo"),
                       ],
                     ),
                     Column(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.phone),
+                          icon: const Icon(Icons.phone),
                           onPressed: () {
-                            final snackBar = SnackBar(
-                              content: const Text('Yay! A SnackBar!'),
-                              action: SnackBarAction(
-                                label: 'Undo',
-                                onPressed: () {
-                                  // Some code to undo the change.
-                                },
-                              ),
-                            );
-
-                            // Find the ScaffoldMessenger in the widget tree
-                            // and use it to show a SnackBar.
                             ScaffoldMessenger.of(context)
-                                .showSnackBar(snackBar);
+                                .showSnackBar(const SnackBar(
+                              content: const Text("Telefono"),
+                              duration: const Duration(milliseconds: 300),
+                            ));
+
+                            setState(() {
+                              _phone++;
+                            });
                           },
+                          color: (_phone % 2 == 1) ? Colors.blue : Colors.black,
                         ),
                         const Text("telefono")
                       ],
@@ -118,16 +126,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.directions),
+                          icon: const Icon(Icons.directions),
                           onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text("Correo Enviado"),
-                              duration: Duration(milliseconds: 300),
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: const Text("Direccion"),
+                              duration: const Duration(milliseconds: 300),
                             ));
+
+                            setState(() {
+                              _dir++;
+                            });
                           },
-                          color: Colors.blue,
+                          color: (_dir % 2 == 1) ? Colors.blue : Colors.black,
                         ),
-                        Text("correo")
+                        const Text("correo"),
                       ],
                     ),
                   ],

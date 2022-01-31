@@ -105,20 +105,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Column(
                       children: [
-                        IconButton(
-                          icon: const Icon(Icons.phone),
-                          onPressed: () {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                              content: const Text("Telefono"),
-                              duration: const Duration(milliseconds: 3000),
-                            ));
+                        Center(
+                          child: IconButton(
+                            icon: const Icon(Icons.phone),
+                            onPressed: () {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: const Text("Telefono"),
+                                duration: const Duration(milliseconds: 3000),
+                              ));
 
-                            setState(() {
-                              _phone++;
-                            });
-                          },
-                          color: (_phone % 2 == 1) ? Colors.blue : Colors.black,
+                              setState(() {
+                                _phone++;
+                              });
+                            },
+                            color:
+                                (_phone % 2 == 1) ? Colors.blue : Colors.black,
+                          ),
                         ),
                         const Text("telefono")
                       ],

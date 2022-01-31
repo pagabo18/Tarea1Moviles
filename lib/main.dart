@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 Text("$likes"),
                 IconButton(
                   onPressed: () {
-                    (likes > 0) ? likes-- : likes;
+                    likes--;
                     if (down == 0) {
                       down++;
                     } else {
@@ -112,6 +112,7 @@ class _HomePageState extends State<HomePage> {
                           content: Text("Correo del iteso: correo@iteso.com"),
                         ),
                       );
+                      setState(() {});
                     },
                     icon: Icon(Icons.email),
                     color: (mail == 0) ? Colors.black : Colors.blue,
@@ -134,6 +135,7 @@ class _HomePageState extends State<HomePage> {
                           content: Text("telefono del iteso: 3312415613"),
                         ),
                       );
+                      setState(() {});
                     },
                     icon: Icon(Icons.phone_forwarded),
                     color: (phone == 0) ? Colors.black : Colors.blue,
@@ -156,6 +158,7 @@ class _HomePageState extends State<HomePage> {
                           content: Text("Ruta del iteso"),
                         ),
                       );
+                      setState(() {});
                     },
                     icon: Icon(Icons.directions),
                     color: (direct == 0) ? Colors.black : Colors.blue,

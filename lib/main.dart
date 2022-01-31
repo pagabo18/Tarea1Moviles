@@ -89,13 +89,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         IconButton(
                           icon: const Icon(Icons.mail),
                           onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text("Mail"),
-                              duration: Duration(milliseconds: 300),
-                            ));
-
                             setState(() {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: const Text("Mail"),
+                              ));
                               _mail++;
+                              print(_mail);
                             });
                           },
                           color: (_mail % 2 == 1) ? Colors.blue : Colors.black,
@@ -105,20 +105,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Column(
                       children: [
-                        IconButton(
-                          icon: const Icon(Icons.phone),
-                          onPressed: () {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                              content: const Text("Telefono"),
-                              duration: const Duration(milliseconds: 300),
-                            ));
+                        Center(
+                          child: IconButton(
+                            icon: const Icon(Icons.phone),
+                            onPressed: () {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: const Text("Telefono"),
+                                duration: const Duration(milliseconds: 3000),
+                              ));
 
-                            setState(() {
-                              _phone++;
-                            });
-                          },
-                          color: (_phone % 2 == 1) ? Colors.blue : Colors.black,
+                              setState(() {
+                                _phone++;
+                              });
+                            },
+                            color:
+                                (_phone % 2 == 1) ? Colors.blue : Colors.black,
+                          ),
                         ),
                         const Text("telefono")
                       ],
@@ -131,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
                               content: const Text("Direccion"),
-                              duration: const Duration(milliseconds: 300),
+                              duration: const Duration(milliseconds: 3000),
                             ));
 
                             setState(() {

@@ -25,6 +25,9 @@ class _HomePageState extends State<HomePage> {
   int likes = 0;
   int up = 0;
   int down = 0;
+  int mail = 0;
+  int phone = 0;
+  int direct = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +101,11 @@ class _HomePageState extends State<HomePage> {
                   IconButton(
                     iconSize: 64,
                     onPressed: () {
+                      if (mail == 0) {
+                        mail++;
+                      } else {
+                        mail--;
+                      }
                       // Muestra un snack bar con texto
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -106,6 +114,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     icon: Icon(Icons.email),
+                    color: (mail == 0) ? Colors.black : Colors.blue,
                   ),
                   Text("Email"),
                 ],
@@ -115,6 +124,11 @@ class _HomePageState extends State<HomePage> {
                   IconButton(
                     iconSize: 64,
                     onPressed: () {
+                      if (phone == 0) {
+                        phone++;
+                      } else {
+                        phone--;
+                      }
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("telefono del iteso: 3312415613"),
@@ -122,6 +136,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     icon: Icon(Icons.phone_forwarded),
+                    color: (phone == 0) ? Colors.black : Colors.blue,
                   ),
                   Text("Telefono"),
                 ],
@@ -131,6 +146,11 @@ class _HomePageState extends State<HomePage> {
                   IconButton(
                     iconSize: 64,
                     onPressed: () {
+                      if (direct == 0) {
+                        direct++;
+                      } else {
+                        direct--;
+                      }
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("Ruta del iteso"),
@@ -138,6 +158,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     icon: Icon(Icons.directions),
+                    color: (direct == 0) ? Colors.black : Colors.blue,
                   ),
                   Text("Ruta"),
                 ],
